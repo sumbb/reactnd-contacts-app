@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 class Contact extends Component {
 
     render() {
-    
+        console.log('props', this.props);
         const contact = this.props.contact
         return  <li key={contact.id} className='contact-list-item'>
                 <div
@@ -16,7 +16,9 @@ class Contact extends Component {
               <p>{contact.name}</p>
               <p>{`@${contact.handle}`}</p>
             </div>
-            <button className='contact-remove'>
+            <button 
+            className='contact-remove'
+            onClick={() => this.props.onDeleteContact(contact)}>
               Remove
             </button>
             </li>

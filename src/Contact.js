@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class Contact extends Component {
 
@@ -25,6 +26,11 @@ class Contact extends Component {
             
             
     }
+}
+
+Contact.propTypes = {
+    contact : PropTypes.object.isRequired,
+    onDeleteContact : PropTypes.func.isRequired
 }
 
 export default Contact

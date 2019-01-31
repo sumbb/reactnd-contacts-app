@@ -3,9 +3,25 @@ import Contact from './Contact';
 import PropTypes from 'prop-types';
 
 class ListContacts extends Component {
-    
+    static propTypes = {
+        contacts : PropTypes.array.isRequired,
+        onDeleteContact : PropTypes.func.isRequired
+    }
+    state = {
+        query : ''
+    }
     render() {
-        return <ol className='contact-list'>
+        return <div className = 'list-contacts'>
+            <div className = 'list-contacts-top'>
+                <input 
+                    className = 'search-contacts'
+                    placeholder = 'Search Contacts'
+                    type = 'text'
+                    value = {this.state.query}
+                />
+            </div>
+
+            <ol className='contact-list'>
             {this.props.contacts.map((contact) => (
            <Contact 
             contact = {contact}
@@ -14,11 +30,10 @@ class ListContacts extends Component {
             ))
             }
         </ol>
+        </div>
+        
     }
 }
 
-ListContacts.propTypes = {
-    contacts : PropTypes.array.isRequired,
-    onDeleteContact : PropTypes.func.isRequired
-}
+
 export default ListContacts;
